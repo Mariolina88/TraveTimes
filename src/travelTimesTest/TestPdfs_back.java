@@ -20,7 +20,7 @@ public class TestPdfs_back extends HMTestCase{
 		String endDate = "1994-01-02 00:00";
 		int timeStepMinutes = 60;
 		String fId = "ID";
-		double []params_v={0.5,1};
+		double []params_v={1,1};
 	
 
 		PrintStreamProgressMonitor pm = new PrintStreamProgressMonitor(System.out, System.out);

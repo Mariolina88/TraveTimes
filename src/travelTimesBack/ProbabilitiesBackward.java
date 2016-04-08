@@ -175,34 +175,34 @@ public class ProbabilitiesBackward extends JGTModel{
 
 	@Description("The output probabilities HashMap")
 	@Out
-	public HashMap<Integer, double[]> outHMPQback= new HashMap<Integer, double[]>();;
+	public HashMap<Integer, double[]> outHMPQback= new HashMap<Integer, double[]>();
 
 
 	@Description("The output probabilities HashMap")
 	@Out
-	public HashMap<Integer, double[]> outHMPETback= new HashMap<Integer, double[]>();;
+	public HashMap<Integer, double[]> outHMPETback= new HashMap<Integer, double[]>();
 
 
 	@Description("The output probabilities HashMap")
 	@Out
-	public HashMap<Integer, double[]> outHMQback= new HashMap<Integer, double[]>();;
+	public HashMap<Integer, double[]> outHMQback= new HashMap<Integer, double[]>();
 
 
 	@Description("The output probabilities HashMap")
 	@Out
-	public HashMap<Integer, double[]> outHMETback= new HashMap<Integer, double[]>();;
+	public HashMap<Integer, double[]> outHMETback= new HashMap<Integer, double[]>();
 
 
 	@Description("The output HashMap with "
 			+ "the mean travel times values for each t and ti")
 	@Out
-	public HashMap<Integer, double[]> outHMQtt= new HashMap<Integer, double[]>();;
+	public HashMap<Integer, double[]> outHMQtt= new HashMap<Integer, double[]>();
 
 
 	@Description("The output HashMap with "
 			+ "the mean ET times values for each t and ti")
 	@Out
-	public HashMap<Integer, double[]> outHMETtt= new HashMap<Integer, double[]>();;
+	public HashMap<Integer, double[]> outHMETtt= new HashMap<Integer, double[]>();
 
 
 	@Description("arraiFin is the final array needed for the rigth computationif the ID in the"
