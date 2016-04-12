@@ -28,7 +28,11 @@ import oms3.annotations.In;
 import oms3.annotations.Out;
 
 import org.geotools.feature.SchemaException;
+import org.jgrasstools.gears.libs.modules.JGTConstants;
 import org.jgrasstools.gears.libs.modules.JGTModel;
+import org.joda.time.DateTime;
+import org.joda.time.Hours;
+import org.joda.time.format.DateTimeFormatter;
 
 
 // TODO: Auto-generated Javadoc
@@ -74,7 +78,16 @@ public class InjectionTimeIntegration extends JGTModel{
 	@Description("the vector with the results of Q integration ") 
 	Double[] vectorQ;
 	
+	private DateTimeFormatter formatter = JGTConstants.utcDateFormatterYYYYMMDDHHMM;
+	
+	@Description("First date of the simulation")
+	@In
+	public String tStartDate;
 
+
+	@Description("Last date of the simulation")
+	@In
+	public String tEndDate;
 
 
 	/**
@@ -90,7 +103,13 @@ public class InjectionTimeIntegration extends JGTModel{
 		
 		/** since the dimension of the input hashmap varies in time
 		 * dim_i computes it for the following loop */
+		DateTime start = formatter.parseDateTime(tStartDate);
+		DateTime end = formatter.parseDateTime(tEndDate);
+		int dim_max=Hours.hoursBetween(start, end).getHours()+1;
+		
 		dim_i=inQoutvalues.size();
+		
+		
 
 		/** this loop is necessary for the data input:
 		*t_i is the injection time, t is the general time-step
@@ -104,17 +123,23 @@ public class InjectionTimeIntegration extends JGTModel{
 
 			valueQ.add(Q);
 
-
 		}
 
 		/** Q values are stored in two fixed arrays (valueQ and valueET)
 		*for the first injection-time (t_i==0) 
-		* and then the sums Q  are computed for all the other injection times
+		* and then the sums of Q  are computed for all the other injection times
 		*/
-		vectorQ = (t_i== 0) ? toArray(valueQ, dim_i) : computeSum(valueQ, vectorQ);
-
+		if (t_i<dim_max-1){
+		vectorQ = (t_i== 0) ? toArray(valueQ, dim_max) : computeSum(valueQ, vectorQ);
 		/** storage of results in hashmaps*/
 		storeResult(t_i,vectorQ);
+
+		}else {
+			outHMQ.put(ID, new double[]{0});
+		}
+
+		
+		
 		t_i++;
 	}
 
@@ -144,8 +169,11 @@ public class InjectionTimeIntegration extends JGTModel{
 
 		Double[] tmpVector = new Double[dim_i];
 		value.toArray(tmpVector);
-
-		for (int i=0; i<dim_i; i++) vector[i+t_i] += tmpVector[i];
+		
+		for (int i=0; i<tmpVector.length; i++) {
+			if(vector[i+t_i]==null) vector[i+t_i]=0.0;
+			vector[i+t_i] += tmpVector[i];
+		}
 
 		return vector;
 
@@ -168,5 +196,7 @@ public class InjectionTimeIntegration extends JGTModel{
 
 
 	}	
+	
+	
 
 }

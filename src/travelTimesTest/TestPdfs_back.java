@@ -16,8 +16,8 @@ public class TestPdfs_back extends HMTestCase{
 	public void testLinear() throws Exception {
 
 		String startDateWB = "1994-01-01 00:00";
-		String startDate = "1994-01-01 10:00";
-		String endDate = "1994-01-02 00:00";
+		String startDate = "1994-01-01 00:00";
+		String endDate = "1994-01-01 15:00";
 		int timeStepMinutes = 60;
 		String fId = "ID";
 		double []params_v={1,1};
