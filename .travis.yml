@@ -12,16 +12,16 @@ before_deploy:
     - export GRADLE_BUILD_DIR="build/libs"
     - export TAG=$(git describe --abbrev=0 --tags)
     - export MOD_TAG=${TAG#"v"}
-    - export RELEASE_PKG_FILE="${GRADLE_BUILD_DIR}/Krigings-${MOD_TAG}.jar"
+    - export RELEASE_PKG_FILE="${GRADLE_BUILD_DIR}/TravelTimes-${MOD_TAG}.jar"
     - echo "deploying $RELEASE_PKG_FILE to GitHub releases"
     - gradle -PprojVersion=$MOD_TAG build
 deploy:
   provider: releases
   api_key:
-    secure: ovDxve/tT2163lPWf2qhxVtIZjR+8H8KaZV0boxQKrrjMTDlp6I6bpXDTVQZq12LQRtKTs9vNRd4nlNm6Wp+Wta6qtZi981P6EuqEDFsMRK9+eppkjQTnPSrRf0fYYL81QgAXBNaIYSJWLJ+k7Ou28Ikyb+/3QWFifkFTbo+LgU6MVE5lUJCsMOn0q2cPiWacvvgL51O6ZkEz5IAB5XxWFxCQdvdn6ExZxBOM3OiA8dGKRruNtXpI3qgREz219qrUJZhDxA2ATlWGKnobIK8b0/flhT7Xm84RVRWWabYB9zNhSO06o/BJsXvVTmt/+f3hITN3Ga/A0DG5IvZ9eOOPA0EpR2s/XLmenNCHLqHxzkMJd6AueA0VQVXPDE87sL7lsnvwaFHFiBZ91/K1zUZZRnIoy46351rlsvj/7J6+ge+tpm1FwFdycDjgOApkBavGmaZxtL3Y/nJ4QFW8ioVWA/eTZ4EfPFBFZJTsrO4N1+1Kt9MZeFpFcgNgHz8/lgcZtL/yIdCM08OnQkn/SxdjklIBpLjGeoeAzPTjsROfCw56b94RbFLdZpD1qH7zEGTcNiWqrYOuCYZL9XU0fFtvvG4vy9LmRR+orlnVqB1tdPE4V50Kvk4WxfSvUhvJ9FS1tQmIByBiKICIKYD2YLyXWcYMms2l7vfUxcLvtglUk8=
+    secure: lVbsJsXg7TwoHjPfPlwDf2XU+pzQKD79QwgAph3080uFNhA1al0r6MXr8tvbsrUjnymjpOXa/cv3/w34mkeEVj4cuZ8gEaZpeUN4sEjswDQFFvLL3+Niz7Ny33TGTdMVxtrgA+g9N52Z8ES2hVt+fiLTxb+QUMsoDq3p7JMT0vUn+n0t+DoJRJfhTXh50s8pKYVbNJ9Hv66vaj6HNSSs2Ykt9oFQ7lgFEvrY9T9h2FOvalrxrabsntk2bHAVoKV3c3hslcryUhyrgDfLSzldLSLhWKf4GhoqfVbKaY1GmAfS+DY99rFwcwG2lYDGQs1zUJIhoraosU+Xi9amji9eUwjV+Zf3sTcEWoxGWXZr/dKDeXH7rkV+HvP3Ut43xlmCDNAx52cOj2mYz4DMmbvGenWokUNpF37bPhsZlPwUqM79NgKAO9deCNVYOQN4sXS6NJpMsdlZQ/axm1XlvMcYo27Fa5L7/GCtA3fv55gF3ruJMLYl2+Mfk3BHKLDn8iCc2/Y2lSavVUoWro8VQhJA5dKmYfYcD7ztO0k9mWvE1QmZqEZuABWivLrhhxuebehV3lqxhOn9tDl6jF8EpjFHoTRAizwoWxjgQDwUpd+U3I7IkN8UQCejx3pl7xbBEW5hrX9PmmmyIRfmK/nfxIVLfe/tUaGcNxGz5W4OZFJk/rw=
   file: "${RELEASE_PKG_FILE}"
   skip_cleanup: true
   on:
     tags: true
     all_branches: true
-    repo: geoframecomponents/Krigings
+    repo: geoframecomponents/TravelTimes
