@@ -19,7 +19,7 @@ public class TestPdfs_back{
 
 		String startDateWB = "1994-01-01 00:00";
 		String startDate = "1994-01-01 00:00";
-		String endDate = "1994-01-01 15:00";
+		String endDate = "1994-03-01 00:00";
 		int timeStepMinutes = 60;
 		String fId = "ID";
 		double []params_v={1,1};
@@ -28,10 +28,10 @@ public class TestPdfs_back{
 		PrintStreamProgressMonitor pm = new PrintStreamProgressMonitor(System.out, System.out);
 
 
-		String inPathToStorage= "resources/Input/S.csv";
+		String inPathToStorage= "resources/Input/S_OUT_rz.csv";
 		String inPathToPrec = "resources/Input/rainfall.csv";
-		String inPathToDischarge= "resources/Input/Q.csv";
-		String inPathToET= "resources/Input/ET.csv";
+		String inPathToDischarge= "resources/Input/R_drain_rz.csv";
+		String inPathToET= "resources/Input/ET_rz.csv";
 		String pathToP= "resources/Output/pdfsBack/p_back.csv";
 		String pathToP_Qback= "resources/Output/pdfsBack/pQ_back.csv";
 		String pathToP_ETback= "resources/Output/pdfsBack/pET_back.csv";
@@ -99,6 +99,7 @@ public class TestPdfs_back{
 			pdfs.m_solver="dp853";
 			pdfs.SAStype="BetaDistribution";
 			pdfs.params=params_v;
+			pdfs.tTimestep=timeStepMinutes;
 			
 			JReader.nextRecord();	
 			HashMap<Integer, double[]> id2ValueMap = JReader.outData;

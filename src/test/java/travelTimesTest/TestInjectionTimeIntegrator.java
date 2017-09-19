@@ -17,14 +17,14 @@ public class TestInjectionTimeIntegrator{
 	public void testLinear() throws Exception {
 
 		String startDate = "1994-01-01 00:00";
-		String endDate = "1994-01-01 15:00";
+		String endDate = "1994-03-01 00:00";
 		int timeStepMinutes = 60;
 		String fId = "ID";
 
 		PrintStreamProgressMonitor pm = new PrintStreamProgressMonitor(System.out, System.out);
 
-		String inpathToQout= "resources/Output/pdfsBack/Qtt.csv";
-		String pathToQ= "resources/Output/integrator/Qtt_int.csv";
+		String inpathToQout= "resources/Output/pdfsBack/Q_back.csv";
+		String pathToQ= "resources/Output/integrator/Q_back_int.csv";
 
 		OmsTimeSeriesIteratorReader QoutReader = getTimeseriesReader(inpathToQout, fId, startDate, endDate, timeStepMinutes);
 		OmsTimeSeriesIteratorWriter writer_Qout = new OmsTimeSeriesIteratorWriter();

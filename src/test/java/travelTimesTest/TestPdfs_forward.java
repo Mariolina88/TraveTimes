@@ -23,8 +23,8 @@ public class TestPdfs_forward{
 
 
 		String inPathToPrec = "resources/Input/rainfall.csv";
-		String inPathToDischarge= "resources/Input/Q.csv";
-		String inPathToET= "resources/Input/ET.csv";
+		String inPathToDischarge= "resources/Input/R_drain_rz.csv";
+		String inPathToET= "resources/Input/ET_rz.csv";
 		String inpathToP_Qback= "resources/Output/pdfsBack/pQ_back.csv";
 		String inpathToP_ETback= "resources/Output/pdfsBack/pET_back.csv";
 		String inpathToQback= "resources/Output/pdfsBack/Q_back.csv";
