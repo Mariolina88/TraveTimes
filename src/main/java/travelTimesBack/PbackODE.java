@@ -85,7 +85,7 @@ public class PbackODE implements FirstOrderDifferentialEquations{
 	 */
 	public void computeDerivatives(double t, double[] y, double[] yDot)
 			throws MaxCountExceededException, DimensionMismatchException {
-		yDot[0] = 1/S_t1*(-Q*omega_Q-ET*omega_ET)*p_back-(S_t1-S_t)/dt*p_back/S_t1;
+		yDot[0] = 1/S_t1*(-Q*omega_Q-ET*omega_ET)*y[0]-(S_t1-S_t)*y[0]/S_t1;
 			
 	}
 
