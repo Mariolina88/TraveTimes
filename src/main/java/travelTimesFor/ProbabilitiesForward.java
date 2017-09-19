@@ -34,6 +34,7 @@ import org.geotools.feature.SchemaException;
 import org.jgrasstools.gears.libs.modules.JGTConstants;
 import org.jgrasstools.gears.libs.modules.JGTModel;
 import org.joda.time.DateTime;
+import org.joda.time.Days;
 import org.joda.time.Hours;
 import org.joda.time.format.DateTimeFormatter;
 
@@ -119,9 +120,6 @@ public class ProbabilitiesForward  extends JGTModel {
 	public Double [] inDischargevalues;
 
 
-	@Description("The path  of the simulated Storage, Discharge and ET")
-	@In
-	public String inPathToValue;
 
 
 	@Description("ET: ET value for the given time considered"
@@ -133,6 +131,10 @@ public class ProbabilitiesForward  extends JGTModel {
 
 	@Description("integration time")
 	double dt=1E-4;
+	
+	@Description("Last date of the simulation")
+	@In
+	public int tTimestep;
 
 
 	private DateTimeFormatter formatter = JGTConstants.utcDateFormatterYYYYMMDDHHMM;
@@ -227,7 +229,7 @@ public class ProbabilitiesForward  extends JGTModel {
 		/** computation of the dimension of the array, given startDate and endDate */
 		DateTime start = formatter.parseDateTime(tStartDate);
 		DateTime end = formatter.parseDateTime(tEndDate);
-		dim=Hours.hoursBetween(start, end).getHours()+1;
+		dim=(tTimestep==60)?Hours.hoursBetween(start, end).getHours()+1:Days.daysBetween(start, end).getDays()+1;
 
 		if (tStartDateWaterBudget==null) deltaT=0;
 		else {DateTime startWaterBudget= formatter.parseDateTime(tStartDateWaterBudget);
