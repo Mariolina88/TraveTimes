@@ -118,7 +118,7 @@ public class InjectionTimeIntegration extends JGTModel{
 
 			Integer basinId = t;
 
-			Q = inQoutvalues.get(basinId)[0]*dt;
+			Q = inQoutvalues.get(basinId)[0];
 			if (isNovalue(Q)) Q= 0;
 
 			valueQ.add(Q);
