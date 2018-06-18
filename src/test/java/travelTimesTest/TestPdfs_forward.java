@@ -17,7 +17,7 @@ public class TestPdfs_forward{
 
 		String startDateWB = "1994-01-01 00:00";
 		String startDate = "1994-01-01 00:00";
-		String endDate = "1994-01-01 15:00";
+		String endDate = "1994-01-31 00:00";
 		int timeStepMinutes = 60;
 		String fId = "ID";
 

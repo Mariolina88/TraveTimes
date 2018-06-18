@@ -19,7 +19,7 @@ public class TestPdfs_back{
 
 		String startDateWB = "1994-01-01 00:00";
 		String startDate = "1994-01-01 00:00";
-		String endDate = "1994-03-01 00:00";
+		String endDate = "1994-01-31 00:00";
 		int timeStepMinutes = 60;
 		String fId = "ID";
 		double []params_v={1,1};

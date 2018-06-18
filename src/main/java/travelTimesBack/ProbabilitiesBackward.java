@@ -128,7 +128,7 @@ public class ProbabilitiesBackward extends JGTModel{
 	@In
 	public String tEndDate;
 	
-	@Description("Last date of the simulation")
+	@Description("Time step of the simulation")
 	@In
 	public int tTimestep;
 
@@ -306,7 +306,7 @@ public class ProbabilitiesBackward extends JGTModel{
 		arrayFin.add((double)t_i);
 
 
-		System.out.println(t_i);
+		//System.out.println(t_i);
 		/** 
 		 * storage of results in hashmaps in which:
 		 * on the first column there re the injection times (date column)

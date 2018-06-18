@@ -102,7 +102,7 @@ public class ProbabilitiesForward  extends JGTModel {
 	public HashMap<Integer, double[]> inPET_backValues;
 
 
-	@Description("J: Precipitation value for the given time considered") 
+	@Description("J: Precipitation value for the considered time step") 
 	double J;
 
 
@@ -111,8 +111,7 @@ public class ProbabilitiesForward  extends JGTModel {
 	public HashMap<Integer, double[]> inPrecipvalues;
 
 
-	@Description("Q: Q value for the given time considered"
-			+ "obtained from the solution of the water budget eqz")
+	@Description("Q: Q value for the considered time step")
 	double Q;
 
 
@@ -122,8 +121,7 @@ public class ProbabilitiesForward  extends JGTModel {
 
 
 
-	@Description("ET: ET value for the given time considered"
-			+ "obtained from the solution of the water budget eqz")
+	@Description("ET: ET value for the considered time step")
 	double ET;
 
 	@Description("[] inETvalues: time series array of all simulated AET")
@@ -206,8 +204,7 @@ public class ProbabilitiesForward  extends JGTModel {
 	double intQ;
 	double intQET;
 	
-	@Description("arraiFin is the final array needed for the rigth computationif the ID in the"
-			+ "output hashmap")
+	@Description("arraiFin is the array containing the t_i at the end of the computation")
 	ArrayList <Double> arrayFin= new ArrayList <Double>();
 
 	/**
